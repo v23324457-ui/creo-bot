@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "creo-bot",
+  "private_key_id": "c37399d77d368338b980a49a9a77e7dd1c7dac5e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDV9PyQ0p+dSy72\nY+u0KToM4kXS4IvLJZDIYpr4pOhoqVaVQjx+WK6ugPwM/h+fT98cE4ZFhyrEpNwJ\nMDYb3b/YWOMGlja/AsNfl63XbWHLd8fB5fmUzTYzSLRXC+Be8hb06O6lPBFL7w7a\n6R3Rm9FExeeeqt9TFvhiq8FqGjhhP2z7EXq0A/CMdk24te6j7lUHhULjleSN8jaJ\nz83uw7uXwfh+MFb8ko2sR65WlZv4L/irN5IgRJB16Q8GIXlHXhTMqLrSkPCjCF4D\nij8p0gO4Mm8Gw0rKs9n4xLQVBW9kPFPiUE1W7ksJ+LHcVV7meatiwlpuK46DyxUr\nYAbxD95DAgMBAAECggEAZz5jO90vIX9cp4+69wJn3Ty49dPeEUbM0S1n27Dz50FD\nox3FxDA2BsX+GqTsDHvFzS4MvnNFq4NkHFjz20mLoDHwR0boHw8NyQyP2iMRrFXe\nAk5fu7K0w1WDlHeKKzbF5iOauQg9zncKo48XEQUQHBAlvxZ0UouEi1SXLgR+DUpk\nH2f+0xUNvhINhYTrHo+oILkBR+tvsR2R55GVjzZYG+VdSiCOuR7Sdsdhj4yZE5Nf\nxBAYNGLHbWk3RwfL3LVXfyhEzxQkCG/1UFtML+braRNOYDn9nd13zuizaxuMXJiV\ntbDkdi36rhMkdY4xfpyxYbmVPvfJRhed7Pxg5JlthQKBgQD4Wg1qhqgamy2D8lyI\nZi+3aO59T85umJ37pKc/0aqdFjqXp1a1Og4vIVfjVUyeoQdVa5N6jBdy5HCDN2O9\nglBVTXJbrQKbnKWhLfpkgHX4kt6G8C9m3NmKe/8xbkfC26OzMNonLIZ4svPi1eot\nE7b3AsY+5ePI3Xr0dbRU2+QkvQKBgQDci8YOyMJdPb02sDGXVVr+QSCOe75M5m2W\nYzzrzHLSOZW2h2ICZoJRCRDkAcgbtyt1x5CpdnvjrOZL5Uj7/s9PScmQKcDu2W8t\ndyIKjMZ4SmSZTrewCpjvF98XiCmQcVsdjmKWGDAxqoQYEpm3U9JOx4lDoFzZdo/B\nFjWFm+e+/wKBgQCrEaTCJwUuZougotZYYkMmDFKS4OEqT1grWYyXKj5ivEgZ5HuW\nk+nnTwlyH3SKpBMgJNzOgic4zeAukn3SsSvSxmkqeu8b73groTcj+VTJp6k+u717\nFk+G08jB7NvjflWxfcoXR9VM2L+kFYOcD0NtvGyAMOyJlP4328ge1+S75QKBgBxP\nwRwSv4iyrUCA+8y+g1DSUXiZAAPlLLo6gQ6QD0lXZRWqaXV/bUkzzbxHUkXkjKqw\n9Kwcbqj6gBHMHENlIX2/LiXYhlDjDreabH9INQ4qFqHrjf8GTT2cJeJic1t8gcLY\njWVRM5acmhpxANSc6Ql96ewJgQHVi3yw+ivtqKFHAoGAP6Vmlq4bX+szbRns9FkJ\nxyPEUxCl0ZmN9Kpn8rTffdIeIlC9TlQMgxWgu48oTHlOmWaG+VGVlI7cIVkIUbrX\nydZBtsLzf5PeEnNF1her/b8Nmli/pPpLIW5GU0zBHV2jcvy9eScYX22ZE/8rqFTA\npi1tNT7tlk0+dfShL4v6nuk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "creo-bot-sheets@creo-bot.iam.gserviceaccount.com",
+  "client_id": "116753811949046928580",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/creo-bot-sheets%40creo-bot.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
