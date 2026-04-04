@@ -1,4 +1,0 @@
-python-telegram-bot==20.7
-anthropic==0.25.0
-fal-client==0.4.1
-aiohttp==3.9.3
