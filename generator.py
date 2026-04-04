@@ -241,11 +241,7 @@ async def generate_creos(update, context, count: int, geo: str, offer: str, stat
                 f"Тип: {['winner', 'ice fishing', 'aviator', 'social proof', 'slots'][sent % 5]}"
             )
 
-            image_bytes = await asyncio.get_event_loop().run_in_executor(
-                None,
-                generate_dalle_image,
-                prompt
-            )
+            image_bytes = generate_dalle_image(prompt)
 
             caption = (
                 f"✅ Крео #{sent+1} | {geo} | {offer}\n"
