@@ -58,76 +58,76 @@ GEO = {
 # ============================================================
 GAME_VISUALS = {
     "aviator": {
-        "style": "dark cinematic background with iconic red Aviator biplane soaring upward through dramatic storm clouds, glowing orange-red multiplier graph curve climbing steeply, motion blur speed lines, atmospheric depth, premium crash-game aesthetic",
-        "key_elements": "Aviator red biplane with engine glow, bold multiplier graph peaking at 100x+, cash-out button lit up on phone screen, coin burst particle effects",
+        "style": "dark cinematic sky with iconic red Aviator biplane soaring upward through dramatic storm clouds, glowing orange-red multiplier graph curve climbing steeply, motion blur speed lines, atmospheric depth",
+        "key_elements": "Aviator red biplane with engine glow, multiplier graph peaking at 100x+, coin burst particle effects",
         "colors": "deep crimson red, burnt orange, jet black, metallic gold accents",
-        "logo": "AVIATOR game logo — bold red italic lettering with white outline at top center",
+        "logo": "AVIATOR",
     },
     "jetx": {
         "style": "cinematic deep-space background with JetX rocket blasting upward in a pillar of blue plasma fire, neon multiplier numbers floating in zero gravity, holographic UI panels, futuristic HUD overlay",
-        "key_elements": "JetX rocket with afterburner exhaust, scrolling multiplier counter, star-field depth, glowing neon blue fire trail, coin explosions",
+        "key_elements": "JetX rocket with afterburner exhaust, star-field depth, glowing neon blue fire trail, coin explosions",
         "colors": "deep space navy, electric blue, violet purple, metallic gold, bright white",
-        "logo": "JetX logo — sleek blue and white bold font with rocket icon",
+        "logo": "JetX",
     },
     "chicken_road": {
-        "style": "vibrant cartoon African savanna sunset scene, brave cartoon chicken in sunglasses leaping over blazing fire ovens, oversized gold coins arcing through the air, exaggerated cartoon physics, cel-shaded 3D art style",
-        "key_elements": "cartoon white chicken hero with accessories mid-jump, rows of fire ovens with visible flames, large spinning gold coins, silhouette African acacia trees, cartoon zebras in background",
-        "colors": "warm sunset orange, vivid yellow, rich brown earth, deep gold, lush vibrant green",
-        "logo": "CHICKEN ROAD — chunky golden 3D letters with fire glow effect",
+        "style": "vibrant cartoon African savanna sunset, brave cartoon chicken in sunglasses leaping over blazing fire ovens, oversized gold coins arcing through the air, cel-shaded 3D art style",
+        "key_elements": "cartoon white chicken hero mid-jump, rows of fire ovens, large spinning gold coins, African acacia trees, cartoon zebras",
+        "colors": "warm sunset orange, vivid yellow, rich brown, deep gold, lush green",
+        "logo": "CHICKEN ROAD",
     },
     "lucky_jet": {
-        "style": "high-energy action scene: Lucky Joe cartoon character in red jetpack rocketing diagonally upward against a dark gradient sky, speed lines, glowing multiplier counter, currency bill explosion",
-        "key_elements": "Lucky Joe character with jetpack flames, bold multiplier display, flying banknotes and currency symbols, dynamic motion blur, spark trail",
+        "style": "high-energy action scene: Lucky Joe cartoon character in red jetpack rocketing diagonally upward against dark gradient sky, speed lines, currency bill explosion",
+        "key_elements": "Lucky Joe character with jetpack flames, flying banknotes and currency symbols, dynamic motion blur, spark trail",
         "colors": "deep navy blue, fiery orange, bright gold, clean white",
-        "logo": "Lucky Jet logo — bold italic font with jet flame accent",
+        "logo": "Lucky Jet",
     },
     "spaceman": {
-        "style": "vibrant outer-space panorama, cute cartoon astronaut floating freely among giant colorful planets, galaxy nebula backdrop in deep purples and blues, multiplier counter glowing in the foreground",
-        "key_elements": "cartoon spaceman astronaut in white suit with expression, ringed planets, twinkling star-field, glowing multiplier orb, scattered gold coins in zero-g",
+        "style": "vibrant outer-space panorama, cute cartoon astronaut floating freely among giant colorful planets, galaxy nebula backdrop in deep purples and blues",
+        "key_elements": "cartoon spaceman astronaut in white suit, ringed planets, twinkling star-field, scattered gold coins in zero-g",
         "colors": "deep cosmic blue, rich purple nebula, bright gold, white starlight, cyan glow",
-        "logo": "SPACEMAN — rounded bold font with star and orbit icon",
+        "logo": "SPACEMAN",
     },
     "ice_fishing": {
         "style": "dramatic arctic panorama under vivid aurora borealis (purple-green-teal sky), massive luminous golden fish suspended on a helicopter hook and chain above a cracking ice surface, explosive gold coin shower at base",
         "key_elements": "enormous glowing golden fish dangling from hook, helicopter silhouette at top, dramatic ice chunks splitting, cascading pile of gold coins, aurora reflections on ice",
         "colors": "aurora purple-teal gradient sky, radiant gold fish, crisp white ice, deep midnight blue water",
-        "logo": "ICE FISHING LIVE — icy blue bold font with fish icon centered at top",
+        "logo": "ICE FISHING LIVE",
     },
     "sweet_bonanza": {
-        "style": "explosive candy-land wonderland, oversized photorealistic 3D candy symbols tumbling through a pastel dreamscape, rainbow lollipops framing the scene, multiplier bomb detonations mid-air, sugar-rush visual energy",
-        "key_elements": "giant 3D candy symbols (watermelon, plum, grape, lollipop), multiplier bombs with glowing fuses, scatter heart symbols, confetti burst, candy-stripe background",
-        "colors": "hot pink, vivid purple, sunshine yellow, lime green, sky blue — saturated candy palette",
-        "logo": "SWEET BONANZA — candy-style rounded letters with rainbow gradient",
+        "style": "explosive candy-land wonderland, oversized photorealistic 3D candy symbols tumbling through a pastel dreamscape, rainbow lollipops framing the scene, multiplier bomb detonations mid-air",
+        "key_elements": "giant 3D candy symbols (watermelon, plum, grape, lollipop), multiplier bombs with glowing fuses, confetti burst, candy-stripe background",
+        "colors": "hot pink, vivid purple, sunshine yellow, lime green, sky blue",
+        "logo": "SWEET BONANZA",
     },
     "big_bass": {
-        "style": "golden-hour fishing lake scene, enormous photorealistic largemouth bass leaping from shimmering water, droplets catching sunset light, proud fisherman silhouette on dock, gold coin explosion from water",
-        "key_elements": "large realistic bass fish airborne with water spray, fishing line taut, coins and banknotes erupting from water, trophy cup, warm lake and tree reflection",
+        "style": "golden-hour fishing lake scene, enormous photorealistic largemouth bass leaping from shimmering water, droplets catching sunset light, proud fisherman silhouette on dock",
+        "key_elements": "large realistic bass fish airborne with water spray, fishing line taut, coins and banknotes erupting from water, trophy cup",
         "colors": "amber sunset gold, deep lake blue-green, lush forest green, rich brown, gleaming orange",
-        "logo": "BIG BASS BONANZA — outdoor adventure bold font with fish icon",
+        "logo": "BIG BASS BONANZA",
     },
     "fruit_party": {
-        "style": "festive fruit fiesta explosion, giant hyper-realistic 3D fruit symbols raining down in a party atmosphere, streamers and confetti swirling, bright disco lighting, celebratory energy",
-        "key_elements": "oversized 3D fruits (watermelon, grapes, strawberry, lemon), bursting confetti cannons, multiplier badges, party streamers, bright spotlights",
+        "style": "festive fruit fiesta explosion, giant hyper-realistic 3D fruit symbols raining down in a party atmosphere, streamers and confetti swirling, bright disco lighting",
+        "key_elements": "oversized 3D fruits (watermelon, grapes, strawberry, lemon), bursting confetti cannons, party streamers, bright spotlights",
         "colors": "vivid red, tropical green, rich purple, bright yellow, party-light magenta",
-        "logo": "FRUIT PARTY — festive bold font with fruit cluster icon",
+        "logo": "FRUIT PARTY",
     },
     "gates_olympus": {
         "style": "epic Greek mythology panorama, mighty Zeus standing on Mount Olympus above swirling storm clouds, divine golden light radiating from above, ancient white marble temple columns, crackling purple lightning bolts",
-        "key_elements": "Zeus god figure with raised lightning bolt, crumbling Parthenon columns, cascading gold coins, dramatic storm clouds, divine beam of light, purple electrical arcs",
+        "key_elements": "Zeus god figure with raised lightning bolt, crumbling Parthenon columns, cascading gold coins, dramatic storm clouds, purple electrical arcs",
         "colors": "divine gold, celestial blue sky, pure white marble, electric purple lightning, radiant godly light",
-        "logo": "GATES OF OLYMPUS — epic serif golden letters with laurel wreath and lightning emblem",
+        "logo": "GATES OF OLYMPUS",
     },
     "naija_wheel": {
-        "style": "vibrant West African celebration scene, giant glittering prize wheel spinning with Ankara-pattern prize sectors, confetti and naira notes filling the air, festive crowd energy, rich cultural color palette",
-        "key_elements": "large spinning prize wheel with colored sectors and prize labels, money bags bursting open, African Ankara fabric patterns as design elements, celebratory crowd silhouettes",
+        "style": "vibrant West African celebration scene, giant glittering prize wheel spinning with Ankara-pattern prize sectors, confetti and naira notes filling the air, festive crowd energy",
+        "key_elements": "large spinning prize wheel with colored sectors, money bags bursting open, African Ankara fabric patterns, celebratory crowd silhouettes",
         "colors": "emerald green, bright gold, deep red, royal blue, vibrant Ankara pattern colors",
-        "logo": "NAIJA WHEEL — bold Afro-styled lettering with wheel icon",
+        "logo": "NAIJA WHEEL",
     },
     "betsafe_virtual": {
-        "style": "cinematic football stadium at peak match moment, floodlights blazing over a perfectly manicured pitch, virtual sports betting UI overlaid on broadcast-style camera angle, dramatic action mid-kick",
-        "key_elements": "packed stadium with roaring crowd, live betting odds panel overlay, ball mid-trajectory, player silhouette, broadcast lower-third graphics",
-        "colors": "vivid pitch green, stadium floodlight white, brand blue, crisp white UI",
-        "logo": "BETSAFE VIRTUAL — clean sports-brand bold font with trophy icon",
+        "style": "cinematic football stadium at peak match moment, floodlights blazing over a perfectly manicured pitch, dramatic action mid-kick, stadium crowd energy",
+        "key_elements": "packed stadium with roaring crowd, ball mid-trajectory, player silhouette, broadcast camera angle",
+        "colors": "vivid pitch green, stadium floodlight white, brand blue, crisp white",
+        "logo": "BETSAFE VIRTUAL",
     },
 }
 
@@ -158,15 +158,192 @@ VARIANTS = [
 ]
 
 # ============================================================
-# PROMPT BUILDER
+# FONT LOADING (Pillow)
 # ============================================================
-def build_prompt(game_id: str, geo: str, offer: str, variant: dict) -> str:
+_FONT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+_FONT_CACHE: dict = {}
+
+_FONT_URLS = {
+    "bold":    "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-Bold.ttf",
+    "black":   "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-ExtraBold.ttf",
+    "regular": "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-SemiBold.ttf",
+}
+
+
+def _ensure_fonts():
+    os.makedirs(_FONT_DIR, exist_ok=True)
+    for name, url in _FONT_URLS.items():
+        path = os.path.join(_FONT_DIR, f"Montserrat-{name}.ttf")
+        if not os.path.exists(path):
+            logger.info(f"Downloading font: {name}")
+            r = requests.get(url, timeout=30)
+            r.raise_for_status()
+            with open(path, "wb") as f:
+                f.write(r.content)
+
+
+def _font(weight: str, size: int):
+    key = (weight, size)
+    if key not in _FONT_CACHE:
+        from PIL import ImageFont
+        _ensure_fonts()
+        path = os.path.join(_FONT_DIR, f"Montserrat-{weight}.ttf")
+        _FONT_CACHE[key] = ImageFont.truetype(path, size)
+    return _FONT_CACHE[key]
+
+
+# ============================================================
+# TEXT OVERLAY (Pillow)
+# ============================================================
+def add_text_overlay(
+    image_bytes: bytes,
+    offer: str,
+    headline: str,
+    sub: str,
+    cta: str,
+    payments_short: str,
+    download: str,
+    game_logo: str,
+) -> bytes:
+    from PIL import Image, ImageDraw
+
+    img = Image.open(io.BytesIO(image_bytes)).convert("RGBA")
+    W, H = img.size  # square_hd = 1024x1024
+
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(layer)
+
+    pad = int(W * 0.04)
+
+    # Font sizes relative to image height
+    f_hero = _font("black", int(H * 0.088))    # headline
+    f_sub  = _font("bold",  int(H * 0.046))    # subtitle
+    f_cta  = _font("black", int(H * 0.042))    # CTA button
+    f_logo = _font("bold",  int(H * 0.038))    # game logo
+    f_sm   = _font("regular", int(H * 0.028))  # payments / badge
+    f_bdg  = _font("bold",  int(H * 0.034))    # offer badge
+
+    def text_w(text, font):
+        bb = draw.textbbox((0, 0), text, font=font)
+        return bb[2] - bb[0]
+
+    def text_h(text, font):
+        bb = draw.textbbox((0, 0), text, font=font)
+        return bb[3] - bb[1]
+
+    def draw_shadow(pos, text, font, fill, shadow=(0, 0, 0, 210), offset=3):
+        x, y = pos
+        for dx in range(-offset, offset + 1):
+            for dy in range(-offset, offset + 1):
+                if dx != 0 or dy != 0:
+                    draw.text((x + dx, y + dy), text, font=font, fill=shadow)
+        draw.text(pos, text, font=font, fill=fill)
+
+    def rounded_rect(xy, r, fill):
+        x1, y1, x2, y2 = xy
+        draw.rectangle([x1 + r, y1, x2 - r, y2], fill=fill)
+        draw.rectangle([x1, y1 + r, x2, y2 - r], fill=fill)
+        draw.ellipse([x1, y1, x1 + 2 * r, y1 + 2 * r], fill=fill)
+        draw.ellipse([x2 - 2 * r, y1, x2, y1 + 2 * r], fill=fill)
+        draw.ellipse([x1, y2 - 2 * r, x1 + 2 * r, y2], fill=fill)
+        draw.ellipse([x2 - 2 * r, y2 - 2 * r, x2, y2], fill=fill)
+
+    # ---- Dark gradient strip at bottom (readability) ----
+    strip_h = int(H * 0.50)
+    strip_y = H - strip_h
+    for i in range(strip_h):
+        alpha = int(200 * (i / strip_h) ** 0.7)
+        draw.line([(0, strip_y + i), (W, strip_y + i)], fill=(0, 0, 0, alpha))
+
+    # ---- Semi-dark strip at top for badge/logo ----
+    top_h = int(H * 0.12)
+    for i in range(top_h):
+        alpha = int(140 * (1 - i / top_h))
+        draw.line([(0, i), (W, i)], fill=(0, 0, 0, alpha))
+
+    # ---- OFFER BADGE (top-left) ----
+    btext = offer.upper()
+    bw = text_w(btext, f_bdg) + pad * 2
+    bh = text_h(btext, f_bdg) + int(pad * 0.8)
+    bx, by = pad, pad
+    rounded_rect((bx, by, bx + bw, by + bh), r=10, fill=(210, 20, 20, 235))
+    bb = draw.textbbox((0, 0), btext, font=f_bdg)
+    draw.text((bx + pad, by + (bh - (bb[3] - bb[1])) // 2), btext, font=f_bdg, fill=(255, 255, 255, 255))
+
+    # ---- GAME LOGO (top-right or top-center) ----
+    logo_text = game_logo
+    lw = text_w(logo_text, f_logo)
+    lx = W - lw - pad
+    ly = pad + 4
+    draw_shadow((lx, ly), logo_text, f_logo, fill=(255, 215, 0, 240), offset=2)
+
+    # ---- HEADLINE ----
+    hl_y = int(H * 0.54)
+    hw = text_w(headline, f_hero)
+    # wrap if too wide
+    if hw > W - pad * 2:
+        words = headline.split()
+        mid = len(words) // 2
+        line1 = " ".join(words[:mid])
+        line2 = " ".join(words[mid:])
+        lh = text_h(line1, f_hero)
+        hx1 = max(pad, (W - text_w(line1, f_hero)) // 2)
+        hx2 = max(pad, (W - text_w(line2, f_hero)) // 2)
+        draw_shadow((hx1, hl_y), line1, f_hero, fill=(255, 215, 0, 255), offset=4)
+        draw_shadow((hx2, hl_y + lh + 4), line2, f_hero, fill=(255, 215, 0, 255), offset=4)
+        next_y = hl_y + lh * 2 + 12
+    else:
+        hx = max(pad, (W - hw) // 2)
+        draw_shadow((hx, hl_y), headline, f_hero, fill=(255, 215, 0, 255), offset=4)
+        next_y = hl_y + text_h(headline, f_hero) + 10
+
+    # ---- SUBTITLE ----
+    sub_y = next_y + int(H * 0.012)
+    sw = text_w(sub, f_sub)
+    sx = max(pad, (W - sw) // 2)
+    draw_shadow((sx, sub_y), sub, f_sub, fill=(255, 255, 255, 240), offset=2)
+
+    # ---- CTA BUTTON ----
+    cta_y = sub_y + text_h(sub, f_sub) + int(H * 0.035)
+    cw = text_w(cta, f_cta)
+    ch = text_h(cta, f_cta)
+    btn_w = cw + int(W * 0.16)
+    btn_h = ch + int(H * 0.038)
+    btn_x = (W - btn_w) // 2
+    # glow ring
+    rounded_rect((btn_x - 4, cta_y - 4, btn_x + btn_w + 4, cta_y + btn_h + 4), r=btn_h // 2 + 4, fill=(255, 180, 0, 70))
+    # button body
+    rounded_rect((btn_x, cta_y, btn_x + btn_w, cta_y + btn_h), r=btn_h // 2, fill=(255, 130, 0, 245))
+    draw.text(
+        (btn_x + (btn_w - cw) // 2, cta_y + (btn_h - ch) // 2),
+        cta, font=f_cta, fill=(255, 255, 255, 255)
+    )
+
+    # ---- PAYMENT ICONS ROW ----
+    pay_y = cta_y + btn_h + int(H * 0.022)
+    pw = text_w(payments_short, f_sm)
+    px = max(pad, (W - pw) // 2)
+    draw_shadow((px, pay_y), payments_short, f_sm, fill=(210, 210, 210, 230), offset=1)
+
+    # ---- APP BADGE ----
+    dl_y = pay_y + text_h(payments_short, f_sm) + int(H * 0.015)
+    dw = text_w(download, f_sm)
+    dx = max(pad, (W - dw) // 2)
+    draw_shadow((dx, dl_y), download, f_sm, fill=(190, 190, 190, 210), offset=1)
+
+    # Composite and return
+    out_img = Image.alpha_composite(img, layer).convert("RGB")
+    buf = io.BytesIO()
+    out_img.save(buf, format="JPEG", quality=93)
+    return buf.getvalue()
+
+
+# ============================================================
+# PROMPT BUILDER  (visual scene only — NO text instructions)
+# ============================================================
+def build_prompt(game_id: str, geo: str, variant: dict) -> str:
     g = GEO[geo]
     gv = GAME_VISUALS.get(game_id, GAME_VISUALS["ice_fishing"])
-
-    headline = variant["headline"](g)
-    sub = variant["sub"](g)
-    cta = g["cta"]
     angle = variant["angle"]
 
     person_desc = ""
@@ -175,54 +352,33 @@ def build_prompt(game_id: str, geo: str, offer: str, variant: dict) -> str:
             if angle == "NIGHT WIN":
                 person_desc = (
                     f"{g['person']} sitting in car at night, face lit by phone screen, "
-                    f"showing withdrawal notification of {g['medium_win']} to {g['payments'].split(',')[0]}, "
                     f"wide excited expression, city bokeh lights in background"
                 )
             else:
                 person_desc = (
-                    f"{g['person']} holding smartphone displaying successful {g['medium_win']} withdrawal "
-                    f"confirmation to {g['payments'].split(',')[0]}, huge beaming smile, natural light"
+                    f"{g['person']} holding smartphone with big beaming smile, natural light"
                 )
         else:
             person_desc = (
-                f"{g['person']} holding fan of crisp {g['currency']} banknotes spread wide in both hands, "
+                f"{g['person']} holding fan of crisp {g['currency']} banknotes spread wide, "
                 f"ecstatic joyful expression, celebratory pose"
             )
 
     bg_modifier = "night-time scene, dark moody cinematic lighting with neon accents, " if angle == "NIGHT WIN" else ""
 
-    flag_line = f"\n  - COUNTRY FLAG: {g['flag']} — placed in corner, crisp and recognizable" if angle == "EXCLUSIVE GEO" else ""
-
-    text_block = (
-        f"TYPOGRAPHY AND TEXT OVERLAY (ultra-sharp, perfectly legible, zero blur, zero distortion):\n"
-        f"  - TOP-LEFT BADGE: \"{offer}\" — bold white text on solid red rounded-rectangle badge\n"
-        f"  - GAME LOGO: {gv['logo']} — crisp vector-style lettering, centered upper area\n"
-        f"  - HEADLINE (largest text, center): \"{headline}\" — extra-bold impact font, gold/yellow color, thick dark drop-shadow and white stroke for maximum contrast\n"
-        f"  - SUBTITLE (below headline): \"{sub}\" — clean semi-bold white font, soft dark shadow\n"
-        f"  - CTA BUTTON (bottom center): \"{cta}\" — bright orange rounded button, bold white uppercase text inside, subtle glow\n"
-        f"  - PAYMENT ICONS ROW (bottom): \"{g['payments_short']}\" — small clean white sans-serif text\n"
-        f"  - APP BADGE (bottom): \"{g['download']}\" — small white text, star rating visible"
-        f"{flag_line}"
-    )
-
     prompt = (
-        f"Professional iGaming advertisement creative, square 1:1 format, ultra-high-definition render, "
-        f"commercial print quality, sharp crisp details throughout. "
-        f"Style: premium mobile-game marketing banner, Spribe/Pragmatic Play production standard.\n\n"
-        f"{text_block}\n\n"
-        f"VISUAL BACKGROUND AND GAME THEME: {bg_modifier}{gv['style']}.\n"
-        f"KEY GAME ELEMENTS IN SCENE: {gv['key_elements']}.\n"
+        f"Professional iGaming advertisement background visual, square 1:1 format, "
+        f"ultra-high-definition render, commercial quality. No text, no words, no letters, no UI overlays.\n\n"
+        f"GAME VISUAL SCENE: {bg_modifier}{gv['style']}.\n"
+        f"KEY ELEMENTS: {gv['key_elements']}.\n"
         f"COLOR PALETTE: {gv['colors']}.\n\n"
-        f"{f'FOREGROUND PERSON: {person_desc}.' if person_desc else ''}\n\n"
-        f"COMPOSITION LAYOUT: three-zone vertical — (1) branding/logo zone at top, "
-        f"(2) hero visual and person in center, (3) CTA and payment bar anchored at bottom. "
-        f"Each zone clearly separated with visual contrast.\n\n"
-        f"QUALITY REQUIREMENTS: photorealistic render, high production value, "
-        f"every text element razor-sharp and fully readable at a glance, "
-        f"high contrast between text and background, professional color grading, "
-        f"no watermarks, no artifacts, commercial-ready output."
+        f"{f'PERSON IN FOREGROUND: {person_desc}.' if person_desc else ''}\n\n"
+        f"COMPOSITION: hero game visual dominates center and upper half. "
+        f"Lower 45% of image fades naturally to dark (vignette) to allow text overlay. "
+        f"Top area slightly darker for badge placement.\n\n"
+        f"Style: Spribe/Pragmatic Play official game marketing art. "
+        f"Photorealistic render, vibrant colors, high production value, zero artifacts, no watermarks, no text."
     )
-
     return prompt
 
 
@@ -238,22 +394,19 @@ def generate_image_fal(prompt: str, input_image_bytes: bytes = None) -> bytes:
         "prompt": prompt,
         "image_size": "square_hd",
         "num_inference_steps": 35,
-        "guidance_scale": 5.0,
+        "guidance_scale": 4.5,
         "num_images": 1,
-        "output_format": "jpeg",
+        "output_format": "png",
         "safety_tolerance": "6",
     }
 
     if input_image_bytes:
-        # Якщо є шаблон — завантажуємо як reference image
         import tempfile
         with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as f:
             f.write(input_image_bytes)
             tmp_path = f.name
-
         image_url = fal_client.upload_file(tmp_path)
         os.unlink(tmp_path)
-
         result = fal_client.run(
             "fal-ai/flux-pro/v1.1",
             arguments={**base_args, "image_url": image_url, "strength": 0.80},
@@ -274,13 +427,35 @@ def generate_image_fal(prompt: str, input_image_bytes: bytes = None) -> bytes:
 # ============================================================
 async def generate_by_game(update, context, game: str, geo: str, offer: str, count: int, chat_id: int, input_photo: bytes = None):
     loop = asyncio.get_event_loop()
+    g = GEO[geo]
+    gv = GAME_VISUALS.get(game, GAME_VISUALS["ice_fishing"])
     variants_to_use = VARIANTS[:count]
 
     for i, variant in enumerate(variants_to_use):
         try:
             await context.bot.send_message(chat_id, f"🖼 {i+1}/{count} — {variant['angle']}...")
-            prompt = build_prompt(game, geo, offer, variant)
+
+            # 1. Build visual-only prompt
+            prompt = build_prompt(game, geo, variant)
+
+            # 2. Generate background with FAL
             image_bytes = await loop.run_in_executor(None, generate_image_fal, prompt, input_photo)
+
+            # 3. Overlay text programmatically with Pillow
+            headline = variant["headline"](g)
+            sub = variant["sub"](g)
+            image_bytes = await loop.run_in_executor(
+                None,
+                add_text_overlay,
+                image_bytes,
+                offer,
+                headline,
+                sub,
+                g["cta"],
+                g["payments_short"],
+                g["download"],
+                gv["logo"],
+            )
 
             caption = f"#{i+1} {variant['angle']} | {game} | {geo} | {offer}"
             await context.bot.send_photo(chat_id=chat_id, photo=io.BytesIO(image_bytes), caption=caption)
