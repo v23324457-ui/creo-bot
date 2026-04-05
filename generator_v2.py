@@ -58,76 +58,76 @@ GEO = {
 # ============================================================
 GAME_VISUALS = {
     "aviator": {
-        "style": "dark dramatic background with red Aviator plane flying upward, orange multiplier graph curve going steeply up, dark atmospheric clouds, red and orange colors, crash game aesthetic",
-        "key_elements": "Aviator plane, multiplier graph 100x+, cash out button visible on phone screen",
-        "colors": "dark red, orange, black, gold",
-        "logo": "AVIATOR game logo in red and white at top",
+        "style": "dark cinematic background with iconic red Aviator biplane soaring upward through dramatic storm clouds, glowing orange-red multiplier graph curve climbing steeply, motion blur speed lines, atmospheric depth, premium crash-game aesthetic",
+        "key_elements": "Aviator red biplane with engine glow, bold multiplier graph peaking at 100x+, cash-out button lit up on phone screen, coin burst particle effects",
+        "colors": "deep crimson red, burnt orange, jet black, metallic gold accents",
+        "logo": "AVIATOR game logo — bold red italic lettering with white outline at top center",
     },
     "jetx": {
-        "style": "space dark background with JetX rocket flying upward trailing fire, multiplier numbers floating, futuristic UI elements",
-        "key_elements": "JetX rocket, multiplier display, space atmosphere, blue fire trail",
-        "colors": "dark blue, purple, gold, white",
-        "logo": "JetX logo in blue and white",
+        "style": "cinematic deep-space background with JetX rocket blasting upward in a pillar of blue plasma fire, neon multiplier numbers floating in zero gravity, holographic UI panels, futuristic HUD overlay",
+        "key_elements": "JetX rocket with afterburner exhaust, scrolling multiplier counter, star-field depth, glowing neon blue fire trail, coin explosions",
+        "colors": "deep space navy, electric blue, violet purple, metallic gold, bright white",
+        "logo": "JetX logo — sleek blue and white bold font with rocket icon",
     },
     "chicken_road": {
-        "style": "cartoon African savanna with fire pits, funny cartoon chicken character jumping over ovens, gold coins, vibrant warm colors, African trees and animals in background",
-        "key_elements": "cartoon white chicken with accessories, fire ovens/pits, coins, African landscape, zebras",
-        "colors": "warm orange, yellow, brown, gold, vibrant green",
-        "logo": "CHICKEN ROAD game logo in golden letters",
+        "style": "vibrant cartoon African savanna sunset scene, brave cartoon chicken in sunglasses leaping over blazing fire ovens, oversized gold coins arcing through the air, exaggerated cartoon physics, cel-shaded 3D art style",
+        "key_elements": "cartoon white chicken hero with accessories mid-jump, rows of fire ovens with visible flames, large spinning gold coins, silhouette African acacia trees, cartoon zebras in background",
+        "colors": "warm sunset orange, vivid yellow, rich brown earth, deep gold, lush vibrant green",
+        "logo": "CHICKEN ROAD — chunky golden 3D letters with fire glow effect",
     },
     "lucky_jet": {
-        "style": "dark background with Lucky Joe character in jetpack flying up, multiplier display, dynamic action scene",
-        "key_elements": "Lucky Joe character with jetpack, multiplier numbers, currency symbols",
-        "colors": "dark blue, gold, orange, white",
-        "logo": "Lucky Jet logo",
+        "style": "high-energy action scene: Lucky Joe cartoon character in red jetpack rocketing diagonally upward against a dark gradient sky, speed lines, glowing multiplier counter, currency bill explosion",
+        "key_elements": "Lucky Joe character with jetpack flames, bold multiplier display, flying banknotes and currency symbols, dynamic motion blur, spark trail",
+        "colors": "deep navy blue, fiery orange, bright gold, clean white",
+        "logo": "Lucky Jet logo — bold italic font with jet flame accent",
     },
     "spaceman": {
-        "style": "outer space background with cartoon astronaut floating, stars and planets, multiplier display, colorful space theme",
-        "key_elements": "cartoon spaceman astronaut, space background, multiplier counter, stars",
-        "colors": "deep blue, purple, gold, white, cyan",
-        "logo": "SPACEMAN game logo",
+        "style": "vibrant outer-space panorama, cute cartoon astronaut floating freely among giant colorful planets, galaxy nebula backdrop in deep purples and blues, multiplier counter glowing in the foreground",
+        "key_elements": "cartoon spaceman astronaut in white suit with expression, ringed planets, twinkling star-field, glowing multiplier orb, scattered gold coins in zero-g",
+        "colors": "deep cosmic blue, rich purple nebula, bright gold, white starlight, cyan glow",
+        "logo": "SPACEMAN — rounded bold font with star and orbit icon",
     },
     "ice_fishing": {
-        "style": "icy arctic scene with bright blue sky OR aurora purple-green background, large golden glowing fish hanging from helicopter hook on chain, ice chunks breaking, gold coins exploding",
-        "key_elements": "large golden fish on hook, helicopter at top, ice chunks, gold coins pile at bottom",
-        "colors": "bright blue, gold, white ice, purple aurora",
-        "logo": "ICE FISHING LIVE logo with fish icon at top center",
+        "style": "dramatic arctic panorama under vivid aurora borealis (purple-green-teal sky), massive luminous golden fish suspended on a helicopter hook and chain above a cracking ice surface, explosive gold coin shower at base",
+        "key_elements": "enormous glowing golden fish dangling from hook, helicopter silhouette at top, dramatic ice chunks splitting, cascading pile of gold coins, aurora reflections on ice",
+        "colors": "aurora purple-teal gradient sky, radiant gold fish, crisp white ice, deep midnight blue water",
+        "logo": "ICE FISHING LIVE — icy blue bold font with fish icon centered at top",
     },
     "sweet_bonanza": {
-        "style": "candy land bright colorful background, giant 3D candy symbols floating, lollipops, multiplier bombs, sugar rush atmosphere, vivid pink and purple",
-        "key_elements": "giant candy symbols, lollipops, tumble reels effect, multiplier bombs, scatter symbols",
-        "colors": "bright pink, purple, yellow, green, vibrant candy colors",
-        "logo": "SWEET BONANZA game logo in candy style letters",
+        "style": "explosive candy-land wonderland, oversized photorealistic 3D candy symbols tumbling through a pastel dreamscape, rainbow lollipops framing the scene, multiplier bomb detonations mid-air, sugar-rush visual energy",
+        "key_elements": "giant 3D candy symbols (watermelon, plum, grape, lollipop), multiplier bombs with glowing fuses, scatter heart symbols, confetti burst, candy-stripe background",
+        "colors": "hot pink, vivid purple, sunshine yellow, lime green, sky blue — saturated candy palette",
+        "logo": "SWEET BONANZA — candy-style rounded letters with rainbow gradient",
     },
     "big_bass": {
-        "style": "fishing lake or ocean scene with large bass fish jumping, fisherman character, gold coins, trophy fish, sunset or bright sky",
-        "key_elements": "large realistic bass fish, fishing rod and hook, coins exploding, trophy, lake scenery",
-        "colors": "blue water, green nature, gold, brown, sunset orange",
-        "logo": "BIG BASS BONANZA game logo",
+        "style": "golden-hour fishing lake scene, enormous photorealistic largemouth bass leaping from shimmering water, droplets catching sunset light, proud fisherman silhouette on dock, gold coin explosion from water",
+        "key_elements": "large realistic bass fish airborne with water spray, fishing line taut, coins and banknotes erupting from water, trophy cup, warm lake and tree reflection",
+        "colors": "amber sunset gold, deep lake blue-green, lush forest green, rich brown, gleaming orange",
+        "logo": "BIG BASS BONANZA — outdoor adventure bold font with fish icon",
     },
     "fruit_party": {
-        "style": "colorful fruit party background, giant 3D fruit symbols floating, grapes, watermelons, party atmosphere, confetti",
-        "key_elements": "giant fruit symbols, confetti, multiplier symbols, party decorations",
-        "colors": "bright red, green, purple, yellow, vibrant party colors",
-        "logo": "FRUIT PARTY game logo with fruits",
+        "style": "festive fruit fiesta explosion, giant hyper-realistic 3D fruit symbols raining down in a party atmosphere, streamers and confetti swirling, bright disco lighting, celebratory energy",
+        "key_elements": "oversized 3D fruits (watermelon, grapes, strawberry, lemon), bursting confetti cannons, multiplier badges, party streamers, bright spotlights",
+        "colors": "vivid red, tropical green, rich purple, bright yellow, party-light magenta",
+        "logo": "FRUIT PARTY — festive bold font with fruit cluster icon",
     },
     "gates_olympus": {
-        "style": "Greek mythology scene with Zeus god on clouds, lightning bolts, ancient temple ruins, divine golden light, epic mythological atmosphere",
-        "key_elements": "Zeus character with lightning, ancient Greek temple, gold coins, lightning bolts, clouds",
-        "colors": "gold, blue sky, white clouds, purple lightning, divine light",
-        "logo": "GATES OF OLYMPUS game logo in epic golden letters",
+        "style": "epic Greek mythology panorama, mighty Zeus standing on Mount Olympus above swirling storm clouds, divine golden light radiating from above, ancient white marble temple columns, crackling purple lightning bolts",
+        "key_elements": "Zeus god figure with raised lightning bolt, crumbling Parthenon columns, cascading gold coins, dramatic storm clouds, divine beam of light, purple electrical arcs",
+        "colors": "divine gold, celestial blue sky, pure white marble, electric purple lightning, radiant godly light",
+        "logo": "GATES OF OLYMPUS — epic serif golden letters with laurel wreath and lightning emblem",
     },
     "naija_wheel": {
-        "style": "colorful African-themed spinning wheel, Nigerian/Ghanaian patterns, bright colors, festive atmosphere, money symbols",
-        "key_elements": "large spinning wheel with prize sectors, African patterns, money bags, celebrations",
-        "colors": "green, gold, red, African pattern colors",
-        "logo": "NAIJA WHEEL logo",
+        "style": "vibrant West African celebration scene, giant glittering prize wheel spinning with Ankara-pattern prize sectors, confetti and naira notes filling the air, festive crowd energy, rich cultural color palette",
+        "key_elements": "large spinning prize wheel with colored sectors and prize labels, money bags bursting open, African Ankara fabric patterns as design elements, celebratory crowd silhouettes",
+        "colors": "emerald green, bright gold, deep red, royal blue, vibrant Ankara pattern colors",
+        "logo": "NAIJA WHEEL — bold Afro-styled lettering with wheel icon",
     },
     "betsafe_virtual": {
-        "style": "football/soccer stadium background, virtual sports betting screen, action shot, dramatic stadium lights",
-        "key_elements": "football stadium, virtual game screen, betting odds display, sports action",
-        "colors": "green pitch, stadium lights, blue, white",
-        "logo": "BETSAFE VIRTUAL logo",
+        "style": "cinematic football stadium at peak match moment, floodlights blazing over a perfectly manicured pitch, virtual sports betting UI overlaid on broadcast-style camera angle, dramatic action mid-kick",
+        "key_elements": "packed stadium with roaring crowd, live betting odds panel overlay, ball mid-trajectory, player silhouette, broadcast lower-third graphics",
+        "colors": "vivid pitch green, stadium floodlight white, brand blue, crisp white UI",
+        "logo": "BETSAFE VIRTUAL — clean sports-brand bold font with trophy icon",
     },
 }
 
@@ -138,17 +138,17 @@ VARIANTS = [
     {"id": 1, "angle": "BIG WIN", "person": True, "phone": False, "urgency": False,
      "headline": lambda g: f'WIN {g["big_win"]}', "sub": lambda g: f'Start from {g["min_deposit"]} only'},
     {"id": 2, "angle": "FREE SPINS", "person": False, "phone": False, "urgency": True,
-     "headline": lambda g: "150 FREE SPINS", "sub": lambda g: f'For New Players • {g["min_deposit"]} only'},
+     "headline": lambda g: "150 FREE SPINS", "sub": lambda g: f'For New Players - {g["min_deposit"]} only'},
     {"id": 3, "angle": "SOCIAL PROOF", "person": True, "phone": True, "urgency": False,
      "headline": lambda g: f'I Won {g["medium_win"]}!', "sub": lambda g: f'Real withdrawal via {g["payments"].split(",")[0]}'},
     {"id": 4, "angle": "URGENCY TODAY", "person": True, "phone": False, "urgency": True,
-     "headline": lambda g: g["urgency"], "sub": lambda g: f'WIN {g["big_win"]} • {g["min_deposit"]}'},
+     "headline": lambda g: g["urgency"], "sub": lambda g: f'WIN {g["big_win"]} - {g["min_deposit"]}'},
     {"id": 5, "angle": "LOCAL PAYMENT", "person": True, "phone": True, "urgency": False,
      "headline": lambda g: f'Instant {g["payments"].split(",")[0]} Payout', "sub": lambda g: f'WIN {g["big_win"]} now'},
     {"id": 6, "angle": "LOW BARRIER", "person": False, "phone": False, "urgency": True,
-     "headline": lambda g: f'{g["min_deposit"]} → {g["big_win"]}', "sub": lambda g: "Start Small Win Big"},
+     "headline": lambda g: f'{g["min_deposit"]} to {g["big_win"]}', "sub": lambda g: "Start Small Win Big"},
     {"id": 7, "angle": "MULTIPLIER", "person": False, "phone": False, "urgency": False,
-     "headline": lambda g: "5000x MULTIPLIER", "sub": lambda g: f'WIN {g["big_win"]} • {g["min_deposit"]}'},
+     "headline": lambda g: "5000x MULTIPLIER", "sub": lambda g: f'WIN {g["big_win"]} - {g["min_deposit"]}'},
     {"id": 8, "angle": "NIGHT WIN", "person": True, "phone": True, "urgency": False,
      "headline": lambda g: f'Won {g["big_win"]} in 5 min!', "sub": lambda g: f'Via {g["payments"].split(",")[0]}'},
     {"id": 9, "angle": "200% BONUS", "person": False, "phone": False, "urgency": True,
@@ -173,35 +173,58 @@ def build_prompt(game_id: str, geo: str, offer: str, variant: dict) -> str:
     if variant["person"]:
         if variant["phone"] and angle in ["SOCIAL PROOF", "NIGHT WIN", "LOCAL PAYMENT"]:
             if angle == "NIGHT WIN":
-                person_desc = f"{g['person']} sitting in car at night holding phone showing '{g['medium_win']} to {g['payments'].split(',')[0]}' withdrawal notification, excited expression, city lights background"
+                person_desc = (
+                    f"{g['person']} sitting in car at night, face lit by phone screen, "
+                    f"showing withdrawal notification of {g['medium_win']} to {g['payments'].split(',')[0]}, "
+                    f"wide excited expression, city bokeh lights in background"
+                )
             else:
-                person_desc = f"{g['person']} holding phone showing successful withdrawal of {g['medium_win']} to {g['payments'].split(',')[0]}, big smile"
+                person_desc = (
+                    f"{g['person']} holding smartphone displaying successful {g['medium_win']} withdrawal "
+                    f"confirmation to {g['payments'].split(',')[0]}, huge beaming smile, natural light"
+                )
         else:
-            person_desc = f"{g['person']} celebrating with fan of {g['currency']} banknotes in hands, big joyful smile"
+            person_desc = (
+                f"{g['person']} holding fan of crisp {g['currency']} banknotes spread wide in both hands, "
+                f"ecstatic joyful expression, celebratory pose"
+            )
 
-    bg_modifier = "at night, dark dramatic scene, " if angle == "NIGHT WIN" else ""
+    bg_modifier = "night-time scene, dark moody cinematic lighting with neon accents, " if angle == "NIGHT WIN" else ""
 
-    prompt = f"""Professional iGaming advertisement banner, square 1:1 format, ultra high quality, photorealistic, vibrant colors, sharp details.
+    flag_line = f"\n  - COUNTRY FLAG: {g['flag']} — placed in corner, crisp and recognizable" if angle == "EXCLUSIVE GEO" else ""
 
-GAME THEME: {gv['style']}. {bg_modifier}
-KEY GAME ELEMENTS: {gv['key_elements']}.
-COLOR PALETTE: {gv['colors']}.
+    text_block = (
+        f"TYPOGRAPHY AND TEXT OVERLAY (ultra-sharp, perfectly legible, zero blur, zero distortion):\n"
+        f"  - TOP-LEFT BADGE: \"{offer}\" — bold white text on solid red rounded-rectangle badge\n"
+        f"  - GAME LOGO: {gv['logo']} — crisp vector-style lettering, centered upper area\n"
+        f"  - HEADLINE (largest text, center): \"{headline}\" — extra-bold impact font, gold/yellow color, thick dark drop-shadow and white stroke for maximum contrast\n"
+        f"  - SUBTITLE (below headline): \"{sub}\" — clean semi-bold white font, soft dark shadow\n"
+        f"  - CTA BUTTON (bottom center): \"{cta}\" — bright orange rounded button, bold white uppercase text inside, subtle glow\n"
+        f"  - PAYMENT ICONS ROW (bottom): \"{g['payments_short']}\" — small clean white sans-serif text\n"
+        f"  - APP BADGE (bottom): \"{g['download']}\" — small white text, star rating visible"
+        f"{flag_line}"
+    )
 
-{f'PERSON: {person_desc}.' if person_desc else ''}
-
-TEXT ON IMAGE (clear, bold, readable):
-- Top-left: "{offer}" logo badge in red background
-- Game logo: {gv['logo']}
-- Large main text in gold/yellow: "{headline}"
-- White subtitle text: "{sub}"
-- Orange rounded CTA button: "{cta}"
-- Bottom payment row: "{g['payments_short']}"
-- Bottom badge: "{g['download']}"
-{f'- Country flag: {g["flag"]}' if angle == "EXCLUSIVE GEO" else ''}
-
-Style: professional gambling advertisement like {game_id} original game marketing material. High production value, realistic render, commercial quality."""
+    prompt = (
+        f"Professional iGaming advertisement creative, square 1:1 format, ultra-high-definition render, "
+        f"commercial print quality, sharp crisp details throughout. "
+        f"Style: premium mobile-game marketing banner, Spribe/Pragmatic Play production standard.\n\n"
+        f"{text_block}\n\n"
+        f"VISUAL BACKGROUND AND GAME THEME: {bg_modifier}{gv['style']}.\n"
+        f"KEY GAME ELEMENTS IN SCENE: {gv['key_elements']}.\n"
+        f"COLOR PALETTE: {gv['colors']}.\n\n"
+        f"{f'FOREGROUND PERSON: {person_desc}.' if person_desc else ''}\n\n"
+        f"COMPOSITION LAYOUT: three-zone vertical — (1) branding/logo zone at top, "
+        f"(2) hero visual and person in center, (3) CTA and payment bar anchored at bottom. "
+        f"Each zone clearly separated with visual contrast.\n\n"
+        f"QUALITY REQUIREMENTS: photorealistic render, high production value, "
+        f"every text element razor-sharp and fully readable at a glance, "
+        f"high contrast between text and background, professional color grading, "
+        f"no watermarks, no artifacts, commercial-ready output."
+    )
 
     return prompt
+
 
 # ============================================================
 # FAL IMAGE GENERATION
@@ -210,6 +233,16 @@ def generate_image_fal(prompt: str, input_image_bytes: bytes = None) -> bytes:
     os.environ["FAL_KEY"] = FAL_KEY
 
     import fal_client
+
+    base_args = {
+        "prompt": prompt,
+        "image_size": "square_hd",
+        "num_inference_steps": 35,
+        "guidance_scale": 5.0,
+        "num_images": 1,
+        "output_format": "jpeg",
+        "safety_tolerance": "6",
+    }
 
     if input_image_bytes:
         # Якщо є шаблон — завантажуємо як reference image
@@ -223,33 +256,18 @@ def generate_image_fal(prompt: str, input_image_bytes: bytes = None) -> bytes:
 
         result = fal_client.run(
             "fal-ai/flux-pro/v1.1",
-            arguments={
-                "prompt": prompt,
-                "image_url": image_url,
-                "strength": 0.75,
-                "image_size": "square_hd",
-                "num_inference_steps": 28,
-                "guidance_scale": 3.5,
-                "num_images": 1,
-                "output_format": "jpeg",
-            }
+            arguments={**base_args, "image_url": image_url, "strength": 0.80},
         )
     else:
         result = fal_client.run(
             "fal-ai/flux-pro/v1.1",
-            arguments={
-                "prompt": prompt,
-                "image_size": "square_hd",
-                "num_inference_steps": 28,
-                "guidance_scale": 3.5,
-                "num_images": 1,
-                "output_format": "jpeg",
-            }
+            arguments=base_args,
         )
 
     image_url = result["images"][0]["url"]
     response = requests.get(image_url, timeout=60)
     return response.content
+
 
 # ============================================================
 # GENERATE BY GAME
@@ -273,6 +291,7 @@ async def generate_by_game(update, context, game: str, geo: str, offer: str, cou
             await context.bot.send_message(chat_id, f"⚠️ Варіант {i+1} пропущено: {str(e)[:100]}")
             await asyncio.sleep(2)
 
+
 # ============================================================
 # ANALYZE CREATIVE
 # ============================================================
@@ -294,6 +313,7 @@ def analyze_creative(photo_bytes: bytes) -> dict:
     import json
     text = response.content[0].text.strip().replace("```json", "").replace("```", "").strip()
     return json.loads(text)
+
 
 # ============================================================
 # ANALYZE AND GENERATE
