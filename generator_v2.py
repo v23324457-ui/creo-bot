@@ -163,32 +163,74 @@ VARIANTS = [
 _FONT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
 _FONT_CACHE: dict = {}
 
+# jsDelivr CDN — надійне дзеркало google/fonts, завжди TTF
 _FONT_URLS = {
-    "bold":    "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-Bold.ttf",
-    "black":   "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-ExtraBold.ttf",
-    "regular": "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-SemiBold.ttf",
+    "bold":    "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/montserrat/static/Montserrat-Bold.ttf",
+    "black":   "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/montserrat/static/Montserrat-ExtraBold.ttf",
+    "regular": "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/montserrat/static/Montserrat-SemiBold.ttf",
 }
 
+# Системні шрифти як fallback (Ubuntu / Debian / Railway)
+_SYSTEM_FONT_CANDIDATES = [
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+    "/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf",
+    "C:/Windows/Fonts/arialbd.ttf",   # Windows fallback
+    "C:/Windows/Fonts/impact.ttf",
+]
 
-def _ensure_fonts():
+
+def _ensure_font(name: str) -> str:
+    """Повертає шлях до TTF файлу. Завантажує якщо відсутній, або повертає системний fallback."""
     os.makedirs(_FONT_DIR, exist_ok=True)
-    for name, url in _FONT_URLS.items():
-        path = os.path.join(_FONT_DIR, f"Montserrat-{name}.ttf")
-        if not os.path.exists(path):
-            logger.info(f"Downloading font: {name}")
-            r = requests.get(url, timeout=30)
+    path = os.path.join(_FONT_DIR, f"Montserrat-{name}.ttf")
+
+    if os.path.exists(path):
+        return path
+
+    # Спроба завантажити з jsDelivr CDN
+    url = _FONT_URLS.get(name)
+    if url:
+        try:
+            logger.info(f"Downloading font '{name}' from jsDelivr...")
+            r = requests.get(url, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
             r.raise_for_status()
-            with open(path, "wb") as f:
-                f.write(r.content)
+            # Перевіряємо що отримали TTF (перші 4 байти: \x00\x01\x00\x00 або 'OTTO' або 'true')
+            if len(r.content) > 4 and r.content[:4] in (b"\x00\x01\x00\x00", b"OTTO", b"true", b"\x74\x72\x75\x65"):
+                with open(path, "wb") as f:
+                    f.write(r.content)
+                logger.info(f"Font '{name}' saved to {path}")
+                return path
+            else:
+                logger.warning(f"Font '{name}': received non-TTF response from CDN")
+        except Exception as e:
+            logger.warning(f"Font CDN download failed for '{name}': {e}")
+
+    # Системний fallback
+    for sys_path in _SYSTEM_FONT_CANDIDATES:
+        if os.path.exists(sys_path):
+            logger.info(f"Using system font fallback: {sys_path}")
+            return sys_path
+
+    # Останній fallback — PIL default (некрасиво, але не падає)
+    logger.warning(f"No font found for '{name}', using PIL default")
+    return ""
 
 
 def _font(weight: str, size: int):
     key = (weight, size)
     if key not in _FONT_CACHE:
         from PIL import ImageFont
-        _ensure_fonts()
-        path = os.path.join(_FONT_DIR, f"Montserrat-{weight}.ttf")
-        _FONT_CACHE[key] = ImageFont.truetype(path, size)
+        path = _ensure_font(weight)
+        if path:
+            try:
+                _FONT_CACHE[key] = ImageFont.truetype(path, size)
+            except Exception as e:
+                logger.warning(f"truetype load failed ({path}): {e}")
+                _FONT_CACHE[key] = ImageFont.load_default()
+        else:
+            _FONT_CACHE[key] = ImageFont.load_default()
     return _FONT_CACHE[key]
 
 
