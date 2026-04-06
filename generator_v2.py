@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import base64
 import asyncio
@@ -489,15 +491,22 @@ def add_text_overlay(
     badge_right_edge = 0
 
     if offer_logo_img is not None:
-        # Scale logo to target height, maintain aspect
-        ow, oh = offer_logo_img.size
-        scaled_w = int(ow * offer_logo_h / oh)
-        scaled = offer_logo_img.resize((scaled_w, offer_logo_h), Image.LANCZOS)
-        bx = pad
-        by = top_center_y - offer_logo_h // 2
-        layer.paste(scaled, (bx, by), scaled)
-        badge_right_edge = bx + scaled_w + pad
-    else:
+        try:
+            ow, oh = offer_logo_img.size
+            if oh == 0:
+                raise ValueError("zero height")
+            scaled_w = max(1, int(ow * offer_logo_h / oh))
+            scaled = offer_logo_img.resize((scaled_w, offer_logo_h), Image.LANCZOS)
+            scaled = scaled.convert("RGBA")   # гарантуємо RGBA для mask
+            bx = pad
+            by = max(0, top_center_y - offer_logo_h // 2)
+            layer.paste(scaled, (bx, by), scaled)
+            badge_right_edge = bx + scaled_w + pad
+        except Exception as e:
+            logger.warning(f"offer logo paste failed: {e}")
+            offer_logo_img = None   # fallback на текст нижче
+
+    if offer_logo_img is None:
         # Text badge fallback — великий та чіткий
         btext = offer.upper()
         bw = text_w(btext, f_bdg) + pad * 2
@@ -520,18 +529,25 @@ def add_text_overlay(
     center_x = (avail_left + avail_right) // 2
 
     if game_logo_img is not None:
-        gw, gh = game_logo_img.size
-        scaled_w = int(gw * game_logo_h / gh)
-        # Cap width so it doesn't crowd offer badge
-        max_w = avail_right - avail_left - pad
-        if scaled_w > max_w:
-            scaled_w = max_w
-            game_logo_h = int(gh * scaled_w / gw)
-        scaled_g = game_logo_img.resize((scaled_w, game_logo_h), Image.LANCZOS)
-        gx = center_x - scaled_w // 2
-        gy = top_center_y - game_logo_h // 2
-        layer.paste(scaled_g, (max(avail_left, gx), max(0, gy)), scaled_g)
-    else:
+        try:
+            gw, gh = game_logo_img.size
+            if gh == 0:
+                raise ValueError("zero height")
+            scaled_w = max(1, int(gw * game_logo_h / gh))
+            max_w = max(1, avail_right - avail_left - pad)
+            if scaled_w > max_w:
+                scaled_w = max_w
+                game_logo_h = max(1, int(gh * scaled_w / gw))
+            scaled_g = game_logo_img.resize((scaled_w, game_logo_h), Image.LANCZOS)
+            scaled_g = scaled_g.convert("RGBA")   # гарантуємо RGBA для mask
+            gx = center_x - scaled_w // 2
+            gy = max(0, top_center_y - game_logo_h // 2)
+            layer.paste(scaled_g, (max(avail_left, gx), gy), scaled_g)
+        except Exception as e:
+            logger.warning(f"game logo paste failed: {e}")
+            game_logo_img = None   # fallback на текст нижче
+
+    if game_logo_img is None:
         # Text fallback — game logo name top-center, gold
         lw = text_w(game_logo_text, f_logo)
         lx = max(avail_left, center_x - lw // 2)
@@ -715,9 +731,17 @@ async def generate_by_game(update, context, game: str, geo: str, offer: str, cou
     gv = GAME_VISUALS.get(game, GAME_VISUALS["ice_fishing"])
     variants_to_use = VARIANTS[:count]
 
-    # Завантажуємо логотипи один раз перед циклом
-    offer_logo_img = await loop.run_in_executor(None, get_offer_logo, offer, 80)
-    game_logo_img  = await loop.run_in_executor(None, get_game_logo,  game,  90)
+    # Завантажуємо логотипи один раз перед циклом (помилки не зупиняють генерацію)
+    try:
+        offer_logo_img = await loop.run_in_executor(None, get_offer_logo, offer, 80)
+    except Exception as e:
+        logger.warning(f"offer logo failed: {e}")
+        offer_logo_img = None
+    try:
+        game_logo_img = await loop.run_in_executor(None, get_game_logo, game, 90)
+    except Exception as e:
+        logger.warning(f"game logo failed: {e}")
+        game_logo_img = None
 
     for i, variant in enumerate(variants_to_use):
         try:
