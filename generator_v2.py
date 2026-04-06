@@ -235,7 +235,169 @@ def _font(weight: str, size: int):
 
 
 # ============================================================
-# TEXT OVERLAY (Pillow)
+# LOGO LOADING
+# ============================================================
+_LOGO_CACHE: dict = {}
+
+# Offer logos — кілька URL на кожен бренд, пробуємо по черзі
+_OFFER_LOGO_URLS: dict[str, list[str]] = {
+    "1xbet": [
+        "https://1xbet.com/img/logo/logo-white-new.svg",          # SVG — пропускаємо
+        "https://partners.1xbet.com/images/logo/logo-light.png",
+        "https://static.1xbet.com/img/logo.png",
+        "https://1x-bet.mobi/img/top/logo.png",
+    ],
+    "melbet": [
+        "https://melbet.com/documents/logotypes/MelBet_white_on_dark.png",
+        "https://partners.melbet.com/images/logo-white.png",
+        "https://cdn.melbet.com/img/logo-white.png",
+    ],
+    "mostbet": [
+        "https://mostbet.com/images/logo-white.png",
+        "https://partners.mostbet.com/images/logo.png",
+    ],
+    "betwinner": [
+        "https://betwinner.com/img/logo-white.png",
+        "https://partners.betwinner.com/img/logo.png",
+    ],
+    "1xbit": [
+        "https://1xbit.com/img/logo.png",
+    ],
+}
+
+# Game logos — офіційні CDN провайдерів
+_GAME_LOGO_URLS: dict[str, list[str]] = {
+    "aviator": [
+        "https://spribe.co/wp-content/uploads/2021/05/aviator-logo.png",
+        "https://cdn.spribe.co/assets/aviator/logo.png",
+    ],
+    "jetx": [
+        "https://smartsoft-games.com/wp-content/uploads/JetX-logo.png",
+        "https://cdn.smartsoft-games.com/jetx/logo.png",
+    ],
+    "chicken_road": [
+        "https://spribe.co/wp-content/uploads/2023/10/chicken-road-logo.png",
+        "https://cdn.spribe.co/assets/chicken-road/logo.png",
+    ],
+    "lucky_jet": [
+        "https://cdn.gamingcorps.com/assets/lucky-jet/logo.png",
+        "https://gamingcorps.com/wp-content/uploads/lucky-jet-logo.png",
+    ],
+    "spaceman": [
+        "https://www.pragmaticplay.com/wp-content/uploads/2022/08/spaceman_logo.png",
+        "https://cdn.pragmaticplay.com/game-assets/spaceman/logo.png",
+    ],
+    "ice_fishing": [
+        "https://bgaming.com/wp-content/uploads/2023/ice-fishing-live-logo.png",
+        "https://cdn.bgaming.com/games/ice-fishing-live/logo.png",
+        "https://bgaming-network.com/games/IceFishingLive/logo.png",
+    ],
+    "sweet_bonanza": [
+        "https://www.pragmaticplay.com/wp-content/uploads/2019/06/Sweet_Bonanza_Logo.png",
+        "https://cdn.pragmaticplay.com/game-assets/vs20fruitsw/logo.png",
+    ],
+    "big_bass": [
+        "https://www.pragmaticplay.com/wp-content/uploads/2020/11/Big_Bass_Bonanza_Logo.png",
+        "https://cdn.pragmaticplay.com/game-assets/vs10bbbonanza/logo.png",
+    ],
+    "fruit_party": [
+        "https://www.pragmaticplay.com/wp-content/uploads/2020/07/Fruit_Party_Logo.png",
+        "https://cdn.pragmaticplay.com/game-assets/vs20fruitparty/logo.png",
+    ],
+    "gates_olympus": [
+        "https://www.pragmaticplay.com/wp-content/uploads/2021/04/Gates_of_Olympus_Logo.png",
+        "https://cdn.pragmaticplay.com/game-assets/vs20olympgate/logo.png",
+    ],
+    "naija_wheel": [],
+    "betsafe_virtual": [
+        "https://www.betsafe.com/assets/images/betsafe-logo.png",
+    ],
+}
+
+
+def _is_valid_image_bytes(data: bytes) -> bool:
+    """Перевіряє magic bytes щоб відрізнити PNG/JPEG від HTML помилок."""
+    if len(data) < 8:
+        return False
+    png_sig = b"\x89PNG\r\n\x1a\n"
+    jpeg_sig = b"\xff\xd8\xff"
+    webp_sig = b"RIFF"
+    return data[:8] == png_sig or data[:3] == jpeg_sig or data[:4] == webp_sig
+
+
+def _try_download_logo(urls: list[str], cache_path: str, max_h: int = 100) -> "Image.Image | None":
+    """
+    Пробує завантажити логотип з кількох URL, кешує в cache_path.
+    Повертає PIL Image (RGBA, масштабована) або None.
+    """
+    from PIL import Image as PILImage
+
+    # Перевіряємо кеш
+    if os.path.exists(cache_path):
+        try:
+            img = PILImage.open(cache_path).convert("RGBA")
+            # Масштабуємо до max_h
+            w, h = img.size
+            if h > max_h:
+                img = img.resize((int(w * max_h / h), max_h), PILImage.LANCZOS)
+            return img
+        except Exception:
+            os.remove(cache_path)
+
+    for url in urls:
+        if not url or url.endswith(".svg"):
+            continue
+        try:
+            r = requests.get(
+                url, timeout=10,
+                headers={"User-Agent": "Mozilla/5.0 (compatible; CreoBot/1.0)"},
+            )
+            if r.status_code == 200 and _is_valid_image_bytes(r.content):
+                os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+                with open(cache_path, "wb") as f:
+                    f.write(r.content)
+                img = PILImage.open(io.BytesIO(r.content)).convert("RGBA")
+                w, h = img.size
+                if h > max_h:
+                    img = img.resize((int(w * max_h / h), max_h), PILImage.LANCZOS)
+                logger.info(f"Logo downloaded: {url}")
+                return img
+        except Exception as e:
+            logger.debug(f"Logo URL failed ({url}): {e}")
+
+    logger.warning(f"All logo URLs failed for {cache_path}")
+    return None
+
+
+_LOGO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logos")
+
+
+def get_offer_logo(offer: str, max_h: int = 80) -> "Image.Image | None":
+    key = offer.lower().replace(" ", "").replace("-", "")
+    # Перевіряємо кеш у пам'яті
+    cache_key = f"offer_{key}_{max_h}"
+    if cache_key in _LOGO_CACHE:
+        return _LOGO_CACHE[cache_key]
+    urls = _OFFER_LOGO_URLS.get(key, [])
+    cache_path = os.path.join(_LOGO_DIR, f"offer_{key}.png")
+    img = _try_download_logo(urls, cache_path, max_h)
+    _LOGO_CACHE[cache_key] = img
+    return img
+
+
+def get_game_logo(game_id: str, max_h: int = 90) -> "Image.Image | None":
+    cache_key = f"game_{game_id}_{max_h}"
+    if cache_key in _LOGO_CACHE:
+        return _LOGO_CACHE[cache_key]
+    urls = _GAME_LOGO_URLS.get(game_id, [])
+    cache_path = os.path.join(_LOGO_DIR, f"game_{game_id}.png")
+    img = _try_download_logo(urls, cache_path, max_h)
+    _LOGO_CACHE[cache_key] = img
+    return img
+
+
+# ============================================================
+# TEXT + LOGO OVERLAY (Pillow)
 # ============================================================
 def add_text_overlay(
     image_bytes: bytes,
@@ -245,7 +407,9 @@ def add_text_overlay(
     cta: str,
     payments_short: str,
     download: str,
-    game_logo: str,
+    game_logo_text: str,
+    offer_logo_img=None,   # PIL Image | None
+    game_logo_img=None,    # PIL Image | None
 ) -> bytes:
     from PIL import Image, ImageDraw
 
@@ -257,13 +421,14 @@ def add_text_overlay(
 
     pad = int(W * 0.04)
 
-    # Font sizes relative to image height
-    f_hero = _font("black", int(H * 0.088))    # headline
-    f_sub  = _font("bold",  int(H * 0.046))    # subtitle
-    f_cta  = _font("black", int(H * 0.042))    # CTA button
-    f_logo = _font("bold",  int(H * 0.038))    # game logo
-    f_sm   = _font("regular", int(H * 0.028))  # payments / badge
-    f_bdg  = _font("bold",  int(H * 0.034))    # offer badge
+    # Font sizes — headline guaranteed min 80px
+    hero_size = max(80, int(H * 0.088))
+    f_hero = _font("black",   hero_size)
+    f_sub  = _font("bold",    max(44, int(H * 0.046)))
+    f_cta  = _font("black",   max(40, int(H * 0.042)))
+    f_logo = _font("bold",    max(36, int(H * 0.040)))
+    f_sm   = _font("regular", max(26, int(H * 0.028)))
+    f_bdg  = _font("bold",    max(34, int(H * 0.038)))   # offer text badge
 
     def text_w(text, font):
         bb = draw.textbbox((0, 0), text, font=font)
@@ -273,7 +438,7 @@ def add_text_overlay(
         bb = draw.textbbox((0, 0), text, font=font)
         return bb[3] - bb[1]
 
-    def draw_shadow(pos, text, font, fill, shadow=(0, 0, 0, 210), offset=3):
+    def draw_shadow(pos, text, font, fill, shadow=(0, 0, 0, 220), offset=3):
         x, y = pos
         for dx in range(-offset, offset + 1):
             for dy in range(-offset, offset + 1):
@@ -283,6 +448,7 @@ def add_text_overlay(
 
     def rounded_rect(xy, r, fill):
         x1, y1, x2, y2 = xy
+        r = min(r, (x2 - x1) // 2, (y2 - y1) // 2)
         draw.rectangle([x1 + r, y1, x2 - r, y2], fill=fill)
         draw.rectangle([x1, y1 + r, x2, y2 - r], fill=fill)
         draw.ellipse([x1, y1, x1 + 2 * r, y1 + 2 * r], fill=fill)
@@ -290,93 +456,169 @@ def add_text_overlay(
         draw.ellipse([x1, y2 - 2 * r, x1 + 2 * r, y2], fill=fill)
         draw.ellipse([x2 - 2 * r, y2 - 2 * r, x2, y2], fill=fill)
 
+    def paste_logo(logo_img, cx, cy, align="center"):
+        """Вставляє RGBA логотип в layer по центру (cx, cy) або по лівому краю."""
+        lw, lh = logo_img.size
+        if align == "center":
+            x = cx - lw // 2
+        else:
+            x = cx
+        y = cy - lh // 2
+        layer.paste(logo_img, (max(0, x), max(0, y)), logo_img)
+        return lw, lh
+
     # ---- Dark gradient strip at bottom (readability) ----
-    strip_h = int(H * 0.50)
+    strip_h = int(H * 0.52)
     strip_y = H - strip_h
     for i in range(strip_h):
-        alpha = int(200 * (i / strip_h) ** 0.7)
+        alpha = int(210 * (i / strip_h) ** 0.65)
         draw.line([(0, strip_y + i), (W, strip_y + i)], fill=(0, 0, 0, alpha))
 
-    # ---- Semi-dark strip at top for badge/logo ----
-    top_h = int(H * 0.12)
+    # ---- Semi-dark strip at top ----
+    top_h = int(H * 0.145)
     for i in range(top_h):
-        alpha = int(140 * (1 - i / top_h))
+        alpha = int(165 * (1 - i / top_h) ** 0.8)
         draw.line([(0, i), (W, i)], fill=(0, 0, 0, alpha))
 
-    # ---- OFFER BADGE (top-left) ----
-    btext = offer.upper()
-    bw = text_w(btext, f_bdg) + pad * 2
-    bh = text_h(btext, f_bdg) + int(pad * 0.8)
-    bx, by = pad, pad
-    rounded_rect((bx, by, bx + bw, by + bh), r=10, fill=(210, 20, 20, 235))
-    bb = draw.textbbox((0, 0), btext, font=f_bdg)
-    draw.text((bx + pad, by + (bh - (bb[3] - bb[1])) // 2), btext, font=f_bdg, fill=(255, 255, 255, 255))
+    top_center_y = int(H * 0.072)   # vertical center of top bar
 
-    # ---- GAME LOGO (top-right or top-center) ----
-    logo_text = game_logo
-    lw = text_w(logo_text, f_logo)
-    lx = W - lw - pad
-    ly = pad + 4
-    draw_shadow((lx, ly), logo_text, f_logo, fill=(255, 215, 0, 240), offset=2)
+    # ============================================================
+    # TOP-LEFT: OFFER LOGO / BADGE
+    # ============================================================
+    offer_logo_h = int(H * 0.078)  # target height ~80px for 1024
+    badge_right_edge = 0
 
-    # ---- HEADLINE ----
-    hl_y = int(H * 0.54)
-    hw = text_w(headline, f_hero)
-    # wrap if too wide
-    if hw > W - pad * 2:
-        words = headline.split()
-        mid = len(words) // 2
-        line1 = " ".join(words[:mid])
-        line2 = " ".join(words[mid:])
-        lh = text_h(line1, f_hero)
-        hx1 = max(pad, (W - text_w(line1, f_hero)) // 2)
-        hx2 = max(pad, (W - text_w(line2, f_hero)) // 2)
-        draw_shadow((hx1, hl_y), line1, f_hero, fill=(255, 215, 0, 255), offset=4)
-        draw_shadow((hx2, hl_y + lh + 4), line2, f_hero, fill=(255, 215, 0, 255), offset=4)
-        next_y = hl_y + lh * 2 + 12
+    if offer_logo_img is not None:
+        # Scale logo to target height, maintain aspect
+        ow, oh = offer_logo_img.size
+        scaled_w = int(ow * offer_logo_h / oh)
+        scaled = offer_logo_img.resize((scaled_w, offer_logo_h), Image.LANCZOS)
+        bx = pad
+        by = top_center_y - offer_logo_h // 2
+        layer.paste(scaled, (bx, by), scaled)
+        badge_right_edge = bx + scaled_w + pad
     else:
-        hx = max(pad, (W - hw) // 2)
-        draw_shadow((hx, hl_y), headline, f_hero, fill=(255, 215, 0, 255), offset=4)
-        next_y = hl_y + text_h(headline, f_hero) + 10
+        # Text badge fallback — великий та чіткий
+        btext = offer.upper()
+        bw = text_w(btext, f_bdg) + pad * 2
+        bh = text_h(btext, f_bdg) + int(pad * 0.9)
+        bx, by = pad, top_center_y - bh // 2
+        rounded_rect((bx, by, bx + bw, by + bh), r=12, fill=(210, 20, 20, 240))
+        bb = draw.textbbox((0, 0), btext, font=f_bdg)
+        draw.text(
+            (bx + pad, by + (bh - (bb[3] - bb[1])) // 2),
+            btext, font=f_bdg, fill=(255, 255, 255, 255)
+        )
+        badge_right_edge = bx + bw + pad
 
-    # ---- SUBTITLE ----
-    sub_y = next_y + int(H * 0.012)
+    # ============================================================
+    # TOP-CENTER: GAME LOGO
+    # ============================================================
+    game_logo_h = int(H * 0.085)   # ~87px
+    avail_left = badge_right_edge
+    avail_right = W - pad
+    center_x = (avail_left + avail_right) // 2
+
+    if game_logo_img is not None:
+        gw, gh = game_logo_img.size
+        scaled_w = int(gw * game_logo_h / gh)
+        # Cap width so it doesn't crowd offer badge
+        max_w = avail_right - avail_left - pad
+        if scaled_w > max_w:
+            scaled_w = max_w
+            game_logo_h = int(gh * scaled_w / gw)
+        scaled_g = game_logo_img.resize((scaled_w, game_logo_h), Image.LANCZOS)
+        gx = center_x - scaled_w // 2
+        gy = top_center_y - game_logo_h // 2
+        layer.paste(scaled_g, (max(avail_left, gx), max(0, gy)), scaled_g)
+    else:
+        # Text fallback — game logo name top-center, gold
+        lw = text_w(game_logo_text, f_logo)
+        lx = max(avail_left, center_x - lw // 2)
+        ly = top_center_y - text_h(game_logo_text, f_logo) // 2
+        draw_shadow((lx, ly), game_logo_text, f_logo, fill=(255, 215, 0, 245), offset=2)
+
+    # ============================================================
+    # HEADLINE — centered, gold, min 80px ExtraBold
+    # ============================================================
+    hl_y = int(H * 0.535)
+
+    def draw_headline_line(text, y):
+        hw = text_w(text, f_hero)
+        hx = max(pad, (W - hw) // 2)
+        draw_shadow((hx, y), text, f_hero, fill=(255, 215, 0, 255), offset=4)
+        return text_h(text, f_hero)
+
+    hw_total = text_w(headline, f_hero)
+    if hw_total > W - pad * 2:
+        # Розбиваємо на 2 рядки по словах
+        words = headline.split()
+        best_split, best_diff = 1, float("inf")
+        for s in range(1, len(words)):
+            l1 = text_w(" ".join(words[:s]), f_hero)
+            l2 = text_w(" ".join(words[s:]), f_hero)
+            if abs(l1 - l2) < best_diff:
+                best_diff, best_split = abs(l1 - l2), s
+        line1 = " ".join(words[:best_split])
+        line2 = " ".join(words[best_split:])
+        lh1 = draw_headline_line(line1, hl_y)
+        lh2 = draw_headline_line(line2, hl_y + lh1 + 6)
+        next_y = hl_y + lh1 + lh2 + 10
+    else:
+        lh = draw_headline_line(headline, hl_y)
+        next_y = hl_y + lh + 10
+
+    # ============================================================
+    # SUBTITLE
+    # ============================================================
+    sub_y = next_y + int(H * 0.013)
     sw = text_w(sub, f_sub)
     sx = max(pad, (W - sw) // 2)
-    draw_shadow((sx, sub_y), sub, f_sub, fill=(255, 255, 255, 240), offset=2)
+    draw_shadow((sx, sub_y), sub, f_sub, fill=(255, 255, 255, 245), offset=2)
 
-    # ---- CTA BUTTON ----
-    cta_y = sub_y + text_h(sub, f_sub) + int(H * 0.035)
+    # ============================================================
+    # CTA BUTTON
+    # ============================================================
+    cta_y = sub_y + text_h(sub, f_sub) + int(H * 0.032)
     cw = text_w(cta, f_cta)
     ch = text_h(cta, f_cta)
-    btn_w = cw + int(W * 0.16)
-    btn_h = ch + int(H * 0.038)
+    btn_w = cw + int(W * 0.18)
+    btn_h = ch + int(H * 0.040)
     btn_x = (W - btn_w) // 2
-    # glow ring
-    rounded_rect((btn_x - 4, cta_y - 4, btn_x + btn_w + 4, cta_y + btn_h + 4), r=btn_h // 2 + 4, fill=(255, 180, 0, 70))
-    # button body
-    rounded_rect((btn_x, cta_y, btn_x + btn_w, cta_y + btn_h), r=btn_h // 2, fill=(255, 130, 0, 245))
+
+    # Glow ring
+    rounded_rect(
+        (btn_x - 5, cta_y - 5, btn_x + btn_w + 5, cta_y + btn_h + 5),
+        r=btn_h // 2 + 5, fill=(255, 185, 0, 75)
+    )
+    # Button body
+    rounded_rect((btn_x, cta_y, btn_x + btn_w, cta_y + btn_h), r=btn_h // 2, fill=(255, 128, 0, 248))
+    # Button text
     draw.text(
         (btn_x + (btn_w - cw) // 2, cta_y + (btn_h - ch) // 2),
         cta, font=f_cta, fill=(255, 255, 255, 255)
     )
 
-    # ---- PAYMENT ICONS ROW ----
+    # ============================================================
+    # PAYMENT ROW
+    # ============================================================
     pay_y = cta_y + btn_h + int(H * 0.022)
     pw = text_w(payments_short, f_sm)
     px = max(pad, (W - pw) // 2)
-    draw_shadow((px, pay_y), payments_short, f_sm, fill=(210, 210, 210, 230), offset=1)
+    draw_shadow((px, pay_y), payments_short, f_sm, fill=(215, 215, 215, 235), offset=1)
 
-    # ---- APP BADGE ----
-    dl_y = pay_y + text_h(payments_short, f_sm) + int(H * 0.015)
+    # ============================================================
+    # APP BADGE
+    # ============================================================
+    dl_y = pay_y + text_h(payments_short, f_sm) + int(H * 0.014)
     dw = text_w(download, f_sm)
-    dx = max(pad, (W - dw) // 2)
-    draw_shadow((dx, dl_y), download, f_sm, fill=(190, 190, 190, 210), offset=1)
+    dx_pos = max(pad, (W - dw) // 2)
+    draw_shadow((dx_pos, dl_y), download, f_sm, fill=(190, 190, 190, 215), offset=1)
 
     # Composite and return
     out_img = Image.alpha_composite(img, layer).convert("RGB")
     buf = io.BytesIO()
-    out_img.save(buf, format="JPEG", quality=93)
+    out_img.save(buf, format="JPEG", quality=94)
     return buf.getvalue()
 
 
@@ -473,6 +715,10 @@ async def generate_by_game(update, context, game: str, geo: str, offer: str, cou
     gv = GAME_VISUALS.get(game, GAME_VISUALS["ice_fishing"])
     variants_to_use = VARIANTS[:count]
 
+    # Завантажуємо логотипи один раз перед циклом
+    offer_logo_img = await loop.run_in_executor(None, get_offer_logo, offer, 80)
+    game_logo_img  = await loop.run_in_executor(None, get_game_logo,  game,  90)
+
     for i, variant in enumerate(variants_to_use):
         try:
             await context.bot.send_message(chat_id, f"🖼 {i+1}/{count} — {variant['angle']}...")
@@ -483,9 +729,9 @@ async def generate_by_game(update, context, game: str, geo: str, offer: str, cou
             # 2. Generate background with FAL
             image_bytes = await loop.run_in_executor(None, generate_image_fal, prompt, input_photo)
 
-            # 3. Overlay text programmatically with Pillow
+            # 3. Overlay text + logos programmatically with Pillow
             headline = variant["headline"](g)
-            sub = variant["sub"](g)
+            sub      = variant["sub"](g)
             image_bytes = await loop.run_in_executor(
                 None,
                 add_text_overlay,
@@ -497,6 +743,8 @@ async def generate_by_game(update, context, game: str, geo: str, offer: str, cou
                 g["payments_short"],
                 g["download"],
                 gv["logo"],
+                offer_logo_img,
+                game_logo_img,
             )
 
             caption = f"#{i+1} {variant['angle']} | {game} | {geo} | {offer}"
